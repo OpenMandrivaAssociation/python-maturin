@@ -30,10 +30,12 @@ mkdir .cargo
 cp %{SOURCE2} .cargo/config
 
 %build
-mkdir wheels
-pip wheel --wheel-dir wheels --no-deps --no-build-isolation --verbose .
+%py_build
+#mkdir wheels
+#pip wheel --wheel-dir wheels --no-deps --no-build-isolation --verbose .
 
 %install
-pip install --root=%{buildroot} --no-deps --verbose --ignore-installed --no-warn-script-location --no-index --no-cache-dir --find-links wheels wheels/*.whl
+%py_install
+#pip install --root=%{buildroot} --no-deps --verbose --ignore-installed --no-warn-script-location --no-index --no-cache-dir --find-links wheels wheels/*.whl
 
 %files
