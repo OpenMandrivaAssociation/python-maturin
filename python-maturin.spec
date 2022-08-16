@@ -5,6 +5,7 @@ Summary:        Rust/Python Interoperability
 License:        Apache-2.0 OR MIT
 URL:            https://github.com/PyO3/maturin
 Source0:        https://files.pythonhosted.org/packages/source/m/maturin/maturin-%{version}.tar.gz
+# Make sure to update vendor. Cd to source then run in terminal "cargo vendor". After downloading all cargo crates, compress is as tar.xz
 Source1:        vendor.tar.xz
 Source2:        cargo_config
 
