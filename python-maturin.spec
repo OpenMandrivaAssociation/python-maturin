@@ -39,3 +39,6 @@ cp %{SOURCE2} .cargo/config
 #pip install --root=%{buildroot} --no-deps --verbose --ignore-installed --no-warn-script-location --no-index --no-cache-dir --find-links wheels wheels/*.whl
 
 %files
+%{_bindir}/maturin
+%{python_sitearch}/maturin-%{version}-py*.*.egg-info
+%{python_sitearch}/maturin/
