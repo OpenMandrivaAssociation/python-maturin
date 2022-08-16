@@ -25,9 +25,7 @@ setuptools-rust milksnake. It supports building wheels for Python
 3.6+, can upload them to PyPI and has basic PyPy support.
 
 %prep
-%autosetup -n maturin-%{version} -p1
-tar -xf %{SOURCE1} -C %{_builddir}
-%define cargo_registry %{_builddir}/vendor
+%autosetup -a1 -n maturin-%{version}
 mkdir .cargo
 cp %{SOURCE2} .cargo/config
 
