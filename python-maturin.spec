@@ -4,7 +4,8 @@ Release:        1
 Summary:        Rust/Python Interoperability
 License:        Apache-2.0 OR MIT
 URL:            https://github.com/PyO3/maturin
-Source:         https://files.pythonhosted.org/packages/source/m/maturin/maturin-%{version}.tar.gz
+Source0:         https://files.pythonhosted.org/packages/source/m/maturin/maturin-%{version}.tar.gz
+Source1:        vendor.tar.xz
 
 BuildRequires:  python3dist(pip)
 BuildRequires:  python3dist(setuptools-rust)
@@ -24,6 +25,8 @@ setuptools-rust milksnake. It supports building wheels for Python
 
 %prep
 %autosetup -n maturin-%{version} -p1
+tar -xf %{SOURCE1} -C %{_builddir}
+%define cargo_registry %{_builddir}/vendor
 
 %build
 mkdir wheels
