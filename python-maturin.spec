@@ -2,7 +2,7 @@
 %undefine _debugsource_packages
 
 Name:           python-maturin
-Version:        1.8.2
+Version:        1.10.2
 Release:        1
 Summary:        Rust/Python Interoperability
 License:        Apache-2.0 OR MIT
