@@ -3,7 +3,7 @@
 
 Name:           python-maturin
 Version:        1.10.2
-Release:        1
+Release:        2
 Summary:        Rust/Python Interoperability
 License:        Apache-2.0 OR MIT
 URL:            https://github.com/PyO3/maturin
