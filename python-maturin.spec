@@ -18,6 +18,7 @@ BuildRequires:  python%{pyver}dist(setuptools-rust)
 BuildRequires:  python%{pyver}dist(setuptools)
 BuildRequires:  python%{pyver}dist(tomli)
 BuildRequires:  python%{pyver}dist(wheel)
+BuildRequires:	python%{pyver}dist(puccinialin)
 
 Requires:       python-tomli
 
