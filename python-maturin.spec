@@ -14,7 +14,7 @@ Source2:        cargo_config
 
 BuildSystem:	python
 BuildRequires:  python%{pyver}dist(pip)
-BuildRequires:  python%{pyver}dist(setuptools-rust)
+#BuildRequires:  python%{pyver}dist(setuptools-rust)
 BuildRequires:  python%{pyver}dist(setuptools)
 BuildRequires:  python%{pyver}dist(tomli)
 BuildRequires:  python%{pyver}dist(wheel)
