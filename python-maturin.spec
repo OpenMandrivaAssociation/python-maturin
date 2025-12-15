@@ -20,8 +20,10 @@ BuildRequires:  python%{pyver}dist(tomli)
 BuildRequires:  python%{pyver}dist(wheel)
 BuildRequires:	python%{pyver}dist(puccinialin)
 BuildRequires:	rust
+BuildRequires:	cargo
 
 Requires:       python-tomli
+Requires:	cargo
 
 %description
 Build and publish crates with pyo3, rust-cpython and cffi bindings
