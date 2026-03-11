@@ -1,3 +1,3 @@
 sources:
-  maturin-1.10.2.tar.gz: dab89a3b2fb94dcbfd37ae2c1c7795a1b386fd21
-  vendor.tar.xz: 376e177ca6d1f6f1ea3ebab9a33d7b5ace1e8ee9
+  maturin-1.12.6.tar.gz: 740ab7ed32ed1985da818243ff6100329e1dcc08
+  python-maturin-1.12.6-vendor.tar.xz: da7a22b52c1af4cb8c6aa11685a2f1abd6efd0a0

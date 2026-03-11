@@ -1,28 +1,27 @@
 # Rust sucks
-%undefine _debugsource_packages
+%undefine _debugsource_template
 
 Name:           python-maturin
-Version:        1.10.2
-Release:        2
+Version:        1.12.6
+Release:        1
 Summary:        Rust/Python Interoperability
 License:        Apache-2.0 OR MIT
 URL:            https://github.com/PyO3/maturin
 Source0:        https://files.pythonhosted.org/packages/source/m/maturin/maturin-%{version}.tar.gz
 # Make sure to update vendor. Cd to source then run in terminal "cargo vendor". After downloading all cargo crates, compress is as tar.xz
-Source1:        vendor.tar.xz
-Source2:        cargo_config
+Source1:        %{name}-%{version}-vendor.tar.xz
 
 BuildSystem:	python
-BuildRequires:  python%{pyver}dist(pip)
-BuildRequires:  python%{pyver}dist(setuptools-rust)
-BuildRequires:  python%{pyver}dist(setuptools)
-BuildRequires:  python%{pyver}dist(tomli)
-BuildRequires:  python%{pyver}dist(wheel)
+BuildRequires:	python%{pyver}dist(pip)
+BuildRequires:	python%{pyver}dist(setuptools-rust)
+BuildRequires:	python%{pyver}dist(setuptools)
+BuildRequires:	python%{pyver}dist(tomli)
+BuildRequires:	python%{pyver}dist(wheel)
 BuildRequires:	python%{pyver}dist(puccinialin)
-BuildRequires:	rust
+BuildRequires:	rust-packaging
 BuildRequires:	cargo
 
-Requires:       python-tomli
+Requires:	python%{pyver}dist(tomli)
 Requires:	cargo
 
 %description
@@ -35,8 +34,15 @@ setuptools-rust milksnake. It supports building wheels for Python
 
 %prep -a
 tar xf %{S:1}
-mkdir .cargo
-cp %{SOURCE2} .cargo/config
+
+%cargo_prep -v vendor
+cat >>.cargo/config <<EOF
+[source.crates-io]
+replace-with = "vendored-sources"
+
+[source.vendored-sources]
+directory = "vendor"
+EOF
 
 %files
 %{_bindir}/maturin
