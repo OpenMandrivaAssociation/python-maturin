@@ -2,7 +2,7 @@
 %undefine _debugsource_template
 
 Name:           python-maturin
-Version:        1.12.6
+Version:        1.13.1
 Release:        1
 Summary:        Rust/Python Interoperability
 License:        Apache-2.0 OR MIT
@@ -44,7 +44,17 @@ replace-with = "vendored-sources"
 directory = "vendor"
 EOF
 
+%build -a
+export CARGO_HOME=$PWD/.cargo
+# sort out crate licenses
+%cargo_license_summary
+%{cargo_license} > LICENSES.dependencies
+
+%install -a
+# install LICENSES.dependencies into dist-info/licenses
+install -Dpm 0644 LICENSES.dependencies -t %{buildroot}%{python_sitearch}/maturin-%{version}.dist-info/licenses
+
 %files
 %{_bindir}/maturin
+%{python_sitearch}/maturin
 %{python_sitearch}/maturin-%{version}.dist-info
-%{python_sitearch}/maturin/

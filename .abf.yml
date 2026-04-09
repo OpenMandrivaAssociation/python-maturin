@@ -1,3 +1,3 @@
 sources:
-  maturin-1.12.6.tar.gz: 740ab7ed32ed1985da818243ff6100329e1dcc08
-  python-maturin-1.12.6-vendor.tar.xz: da7a22b52c1af4cb8c6aa11685a2f1abd6efd0a0
+  maturin-1.13.1.tar.gz: dffb15b6b2b14d1d31f57b6c985d0336b2c1b6f2
+  python-maturin-1.13.1-vendor.tar.xz: ca8bfb9332f42bc728d97b6047864971d3b7ab42
