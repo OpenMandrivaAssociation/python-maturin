@@ -1,13 +1,14 @@
 # Rust sucks
 %undefine _debugsource_template
+%define module maturin
 
 Name:           python-maturin
-Version:        1.13.1
+Version:        1.13.2
 Release:        1
 Summary:        Rust/Python Interoperability
 License:        Apache-2.0 OR MIT
 URL:            https://github.com/PyO3/maturin
-Source0:        https://files.pythonhosted.org/packages/source/m/maturin/maturin-%{version}.tar.gz
+Source0:        https://files.pythonhosted.org/packages/source/m/%{module}/%{module}-%{version}.tar.gz
 # Make sure to update vendor. Cd to source then run in terminal "cargo vendor". After downloading all cargo crates, compress is as tar.xz
 Source1:        %{name}-%{version}-vendor.tar.xz
 
@@ -44,17 +45,19 @@ replace-with = "vendored-sources"
 directory = "vendor"
 EOF
 
-%build -a
+%build -p
 export CARGO_HOME=$PWD/.cargo
+
+%build -a
 # sort out crate licenses
 %cargo_license_summary
 %{cargo_license} > LICENSES.dependencies
 
 %install -a
 # install LICENSES.dependencies into dist-info/licenses
-install -Dpm 0644 LICENSES.dependencies -t %{buildroot}%{python_sitearch}/maturin-%{version}.dist-info/licenses
+install -Dpm 0644 LICENSES.dependencies -t %{buildroot}%{python_sitearch}/%{module}-%{version}.dist-info/licenses
 
 %files
-%{_bindir}/maturin
-%{python_sitearch}/maturin
-%{python_sitearch}/maturin-%{version}.dist-info
+%{_bindir}/%{module}
+%{python_sitearch}/%{module}
+%{python_sitearch}/%{module}-%{version}.dist-info
