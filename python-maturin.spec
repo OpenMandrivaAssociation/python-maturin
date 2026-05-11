@@ -3,7 +3,7 @@
 %define module maturin
 
 Name:           python-maturin
-Version:        1.13.2
+Version:        1.13.3
 Release:        1
 Summary:        Rust/Python Interoperability
 License:        Apache-2.0 OR MIT
